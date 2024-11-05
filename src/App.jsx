@@ -1,16 +1,27 @@
-
-import './App.css'
-import Card from "./components/Card.jsx"
+import { useState } from "react";
+import "./App.css";
+import Producto from "./components/Producto";
+import { productos } from "./productos";
+import Form from "./components/Form";
 
 function App() {
-  return (
-    <div className='App'>
-      <h1>Carga de estudiantes</h1>
-      <form></form>
-      <Card/>
+  const [isSelected, setIsSelected] = useState({
+    product: null,
+    status: false,
+  });
 
+  return (
+    <div>
+      {isSelected.status ? <Form product={isSelected.product} /> : null}
+      {productos.map((producto) => (
+        <Producto
+          key={producto.id}
+          setIsSelected={setIsSelected}
+          producto={producto}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
