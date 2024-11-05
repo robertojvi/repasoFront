@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Card from "./Card.jsx";
 
-// eslint-disable-next-line react/prop-types
 const Form = ({ product }) => {
   //Variables useState
     const [comprador, setComprador] = useState({
